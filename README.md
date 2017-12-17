@@ -1,24 +1,46 @@
-# README
+# Captain Challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a toy application including a fighting game and an interface to manage different characters.
 
-Things you may want to cover:
+## Play
 
-* Ruby version
+### Online
 
-* System dependencies
+You can play online [here](https://captain-challenge.herokuapp.com/).
 
-* Configuration
+### Locally
 
-* Database creation
 
-* Database initialization
+To run it on your computer :
 
-* How to run the test suite
+Git clone this repo
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+git clone https://github.com/Durev/CaptainChallenge.git
+```
+or
+```
+git clone git@github.com:Durev/CaptainChallenge.git
+```
 
-* Deployment instructions
+```
+$ bundle install --without production
+```
 
-* ...
+Next, migrate the database:
+
+```
+$ rails db:migrate
+```
+
+Finally, run the test suite to verify that everything is working correctly:
+
+```
+$ rails test
+```
+
+If the test suite passes, you'll be ready to run the app in a local server:
+
+```
+$ rails server
+```
