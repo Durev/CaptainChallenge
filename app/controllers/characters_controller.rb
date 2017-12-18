@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  def fighters
+  def index
   end
 
   def arena

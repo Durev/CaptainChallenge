@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'characters/fighters'
+  get 'characters/index'
 
   get 'characters/arena'
 
