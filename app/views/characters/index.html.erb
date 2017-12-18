@@ -1,2 +1,46 @@
-<h1>Characters#index</h1>
-<p>Find me in app/views/characters/index.html.erb</p>
+<% provide(:body_class, "signup-page") %>
+
+<div class="wrapper">
+    <div class="header header-filter" style="background-image: url('../assets/img/city.jpg'); background-size: cover; background-position: top center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            <div class="card card-signup">
+              <form class="form" method="" action="">
+                <div class="header header-primary text-center">
+                  <h4>New</h4>
+                </div>
+                <div class="content">
+
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons">face</i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Name...">
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons">favorite</i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Health points...">
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons">whatshot</i>
+                    </span>
+                    <input type="password" placeholder="Attack points..." class="form-control" />
+                  </div>
+
+                </div>
+                <div class="footer text-center">
+                  <a href="#pablo" class="btn btn-simple btn-primary btn-lg">Create</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
