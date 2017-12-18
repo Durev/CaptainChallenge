@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'characters/fighters'
+
+  get 'characters/arena'
+
   root 'static_pages#home'
   get '/about', to: 'static_pages#about'
 
