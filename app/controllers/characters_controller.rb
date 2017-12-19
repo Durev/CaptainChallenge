@@ -12,7 +12,7 @@ class CharactersController < ApplicationController
     if @character.save
       redirect_to index_path
     else
-      render '/index'
+      render 'index'
     end
   end
 

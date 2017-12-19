@@ -1,13 +1,14 @@
 <% provide(:body_class, "signup-page") %>
 
 <div class="wrapper">
-  <div class="header header-filter" style="background-image: url('../assets/img/city.jpg'); background-size: cover; background-position: top center;">
+  <div class="header header-filter">
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
           <div class="card card-signup">
 
             <form class="form" method="post" action="/new">
+
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
               <div class="header header-primary text-center">
@@ -15,6 +16,8 @@
               </div>
 
               <div class="content">
+                <%= render 'shared/error_messages' %>
+
                 <div class="input-group">
                   <span class="input-group-addon"><i class="material-icons">face</i></span>
                   <input type="text" class="form-control" placeholder="Name" name="character[name]">
@@ -22,12 +25,12 @@
 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="material-icons">favorite</i></span>
-                  <input type="number" class="form-control" placeholder="Health points" name="character[health_points]">
+                  <input type="number" class="form-control" placeholder="Health points (between 50 and 100)" name="character[health_points]">
                 </div>
 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="material-icons">whatshot</i></span>
-                  <input type="number" class="form-control" placeholder="Attack points" name="character[attack_points]"/>
+                  <input type="number" class="form-control" placeholder="Attack points (between 5 and 20)" name="character[attack_points]"/>
                 </div>
               </div>
 
@@ -46,32 +49,7 @@
     <div class="section section-basic">
       <div class="container">
 
-        <% @characters.each do |character| %>
 
-          <div class="col-md-6">
-            <div class="card card-nav-tabs">
-
-              <div class="header header-danger">
-                <h3><%= character.name %></h3>
-              </div>
-              <div class="content">
-                <div class="tab-content text-center">
-                  <div class="tab-pane active">
-                    <h4>
-                      <i class="material-icons">favorite</i><br>
-                      Health : <%= character.health_points %>
-                    </h4>
-                    <h4>
-                      <i class="material-icons">whatshot</i><br>
-                      Attack : <%= character.attack_points %></h4>
-                  </div>
-                </div>
-              </div><!-- /content -->
-
-            </div><!-- /card -->
-          </div><!-- /col-md-6 -->
-
-        <% end %>
 
       </div><!-- /container -->
     </div><!-- /section -->
