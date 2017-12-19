@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
   def index
     @character = Character.new
+    @characters = Character.all
   end
 
   def arena
