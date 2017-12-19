@@ -10,8 +10,9 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
     if @character.save
-      redirect_to index_path
+      redirect_to characters_path
     else
+      @characters = Character.all
       render 'index'
     end
   end
