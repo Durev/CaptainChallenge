@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Home page
+.header {
+  background-image: url('arena.jpg')
+}
+
 // Characters page
 .header h3 {
   text-align: center;

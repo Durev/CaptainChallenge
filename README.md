@@ -13,9 +13,7 @@ You can play online [here](https://captain-challenge.herokuapp.com/).
 
 To run it on your computer :
 
-Download or git clone this repo.
-
-Bundle install :
+Download or git clone this repo. Then bundle install :
 
 ```
 $ bundle install
@@ -25,6 +23,12 @@ Next, migrate the database:
 
 ```
 $ rails db:migrate
+```
+
+And create the first characters : (it might take a few seconds)
+
+```
+$ rails db:seed
 ```
 
 You are ready to run the app in a local server:
