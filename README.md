@@ -13,18 +13,12 @@ You can play online [here](https://captain-challenge.herokuapp.com/).
 
 To run it on your computer :
 
-Git clone this repo
+Download or git clone this repo.
+
+Bundle install :
 
 ```
-git clone https://github.com/Durev/CaptainChallenge.git
-```
-or
-```
-git clone git@github.com:Durev/CaptainChallenge.git
-```
-
-```
-$ bundle install --without production
+$ bundle install
 ```
 
 Next, migrate the database:
@@ -33,13 +27,7 @@ Next, migrate the database:
 $ rails db:migrate
 ```
 
-Finally, run the test suite to verify that everything is working correctly:
-
-```
-$ rails test
-```
-
-If the test suite passes, you'll be ready to run the app in a local server:
+You are ready to run the app in a local server:
 
 ```
 $ rails server
