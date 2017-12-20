@@ -17,9 +17,19 @@ class CharactersController < ApplicationController
     end
   end
 
+  def update
+    @character = Character.find(character_params[:id])
+    if @character.update_attributes(character_params)
+      redirect_to characters_path
+    else
+      render 'index'
+    end
+
+  end
+
   private
 
     def character_params
-      params.require(:character).permit(:name, :health_points, :attack_points, :bio, :img_url)
+      params.require(:character).permit(:name, :health_points, :attack_points, :bio, :img_url, :id)
     end
 end
