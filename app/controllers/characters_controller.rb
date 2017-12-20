@@ -20,6 +20,6 @@ class CharactersController < ApplicationController
   private
 
     def character_params
-      params.require(:character).permit(:name, :health_points, :attack_points)
+      params.require(:character).permit(:name, :health_points, :attack_points, :bio, :img_url)
     end
 end

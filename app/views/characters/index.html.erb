@@ -21,18 +21,29 @@
 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="material-icons">face</i></span>
-                  <input type="text" class="form-control" placeholder="Name" name="character[name]">
+                  <input type="text" class="form-control" placeholder="Name *" name="character[name]">
                 </div>
 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="material-icons">favorite</i></span>
-                  <input type="number" class="form-control" placeholder="Health points (between 50 and 100)" name="character[health_points]">
+                  <input type="number" class="form-control" placeholder="Health points (between 50 and 100) *" name="character[health_points]">
                 </div>
 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="material-icons">whatshot</i></span>
-                  <input type="number" class="form-control" placeholder="Attack points (between 5 and 20)" name="character[attack_points]"/>
+                  <input type="number" class="form-control" placeholder="Attack points (between 5 and 20) *" name="character[attack_points]"/>
                 </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="material-icons"></i></span>
+                  <input type="text" class="form-control" placeholder="Bio" name="character[bio]"/>
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="material-icons"></i></span>
+                  <input type="url" class="form-control" placeholder="Profile picture url" name="character[img_url]"/>
+                </div>
+
               </div>
 
               <div class="footer text-center">
@@ -61,13 +72,30 @@
             <div class="content">
               <div class="tab-content text-center">
                 <div class="tab-pane active">
-                  <h4>
-                    <i class="material-icons">favorite</i><br>
-                    Health : <%= character.health_points %>
-                  </h4>
-                  <h4>
-                    <i class="material-icons">whatshot</i><br>
-                    Attack : <%= character.attack_points %></h4>
+                  <% if character.img_url.present? %>
+                    <%= image_tag(character.img_url, class: "img-circle img-responsive") %>
+                  <% end %>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h4>
+                        <i class="material-icons">favorite</i><br>
+                        Health : <%= character.health_points %>
+                      </h4>
+                    </div>
+                    <div class="col-md-6">
+                      <h4>
+                        <i class="material-icons">whatshot</i><br>
+                        Attack : <%= character.attack_points %>
+                      </h4>
+                    </div>
+                  </div>
+
+                  <% if character.bio.present? %>
+                    <hr>
+                    <h4>Bio</h4>
+                    <p><%= character.bio %></p>
+                  <% end %>
                 </div>
               </div>
             </div><!-- /content -->
