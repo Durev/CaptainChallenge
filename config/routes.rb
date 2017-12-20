@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/arena', to: 'characters#arena'
   post '/characters', to: 'characters#create'
   post '/edit', to: 'characters#update'
+  post '/delete', to: 'characters#destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

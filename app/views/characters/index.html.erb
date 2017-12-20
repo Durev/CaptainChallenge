@@ -63,7 +63,7 @@
 
       <% @characters.each do |character| %>
 
-        <div class="col-md-6">
+        <div class="col-md-5">
           <div class="card card-nav-tabs">
 
             <div class="header header-danger">
@@ -146,6 +146,14 @@
                 </div><!-- /div tab-pane (edit) -->
                 <%= tag(:div, class: "tab-pane", id: "delete-#{character.id}") %> <!-- div tab-pane (delete) -->
                   <h5>Do you want to delete <%= character.name %> ?</h5>
+
+                  <form method="post" action="/delete">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="character[id]" value="<%= character.id %>">
+
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                  </form>
+
                 </div><!-- /div tab-pane (delete) -->
               </div>
             </div><!-- /content -->

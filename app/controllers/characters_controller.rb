@@ -24,7 +24,11 @@ class CharactersController < ApplicationController
     else
       render 'index'
     end
+  end
 
+  def destroy
+    Character.find(character_params[:id]).destroy
+    redirect_to characters_path
   end
 
   private
