@@ -60,109 +60,109 @@
   <div class="main main-raised">
     <div class="section section-basic">
       <div class="container">
+        <div class="row">
+          <% @characters.each do |character| %>
 
-      <% @characters.each do |character| %>
+            <div class="col-md-6">
+              <div class="card card-nav-tabs character">
 
-        <div class="col-md-5">
-          <div class="card card-nav-tabs">
-
-            <div class="header header-danger">
-              <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                  <ul class="nav nav-tabs" data-tabs="tabs">
-                    <li class="active">
-                      <%= content_tag(:a, "Profile", href: "#profile-#{character.id}", "data-toggle" => "tab") %>
-                    </li>
-                    <li>
-                      <%= content_tag(:a, "Edit", href: "#edit-#{character.id}", "data-toggle" => "tab") %>
-                    </li>
-                    <li>
-                      <%= content_tag(:a, "Delete", href: "#delete-#{character.id}", "data-toggle" => "tab") %>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="content">
-              <div class="tab-content text-center">
-                <%= tag(:div, class: "tab-pane active", id: "profile-#{character.id}") %> <!-- div tab-pane (profile) -->
-                  <h2><%= character.name %></h2>
-
-                  <% if character.img_url.present? %>
-                    <%= image_tag(character.img_url, class: "img-circle img-responsive") %>
-                  <% end %>
-
-                  <div class="row">
-                    <div class="col-md-6">
-                      <h4>
-                        <i class="material-icons">favorite</i><br>
-                        Health : <%= character.health_points %>
-                      </h4>
-                    </div>
-                    <div class="col-md-6">
-                      <h4>
-                        <i class="material-icons">whatshot</i><br>
-                        Attack : <%= character.attack_points %>
-                      </h4>
+                <div class="header header-danger">
+                  <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                      <ul class="nav nav-tabs" data-tabs="tabs">
+                        <li class="active">
+                          <%= content_tag(:a, "Profile", href: "#profile-#{character.id}", "data-toggle" => "tab") %>
+                        </li>
+                        <li>
+                          <%= content_tag(:a, "Edit", href: "#edit-#{character.id}", "data-toggle" => "tab") %>
+                        </li>
+                        <li>
+                          <%= content_tag(:a, "Delete", href: "#delete-#{character.id}", "data-toggle" => "tab") %>
+                        </li>
+                      </ul>
                     </div>
                   </div>
+                </div>
+                <div class="content">
+                  <div class="tab-content text-center">
+                    <%= tag(:div, class: "tab-pane active", id: "profile-#{character.id}") %> <!-- div tab-pane (profile) -->
+                      <h2><%= character.name %></h2>
 
-                  <% if character.bio.present? %>
-                    <hr>
-                    <h4>Bio</h4>
-                    <p><%= character.bio %></p>
-                  <% end %>
-                </div> <!-- /tab-pane (profile) -->
-                <%= tag(:div, class: "tab-pane", id: "edit-#{character.id}") %> <!-- div tab-pane (edit) -->
+                      <% if character.img_url.present? %>
+                        <%= image_tag(character.img_url, class: "img-circle img-responsive") %>
+                      <% end %>
 
-                  <form class="form" method="post" action="/edit">
-
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <input type="hidden" name="character[id]" value="<%= character.id %>">
-
-                      <div class="input-group">
-                        <input type="text" class="form-control" value="<%= character.name %>" name="character[name]">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <h4>
+                            <i class="material-icons">favorite</i><br>
+                            Health : <%= character.health_points %>
+                          </h4>
+                        </div>
+                        <div class="col-md-6">
+                          <h4>
+                            <i class="material-icons">whatshot</i><br>
+                            Attack : <%= character.attack_points %>
+                          </h4>
+                        </div>
                       </div>
 
-                      <div class="input-group">
-                        <input type="number" class="form-control" value="<%= character.health_points %>" name="character[health_points]">
-                      </div>
+                      <% if character.bio.present? %>
+                        <hr>
+                        <h4>Bio</h4>
+                        <p><%= character.bio %></p>
+                      <% end %>
+                    </div> <!-- /tab-pane (profile) -->
+                    <%= tag(:div, class: "tab-pane", id: "edit-#{character.id}") %> <!-- div tab-pane (edit) -->
 
-                      <div class="input-group">
-                        <input type="number" class="form-control" value="<%= character.attack_points %>" name="character[attack_points]"/>
-                      </div>
+                      <form class="form" method="post" action="/edit">
 
-                      <div class="input-group">
-                        <input type="text" class="form-control" value="<%= character.bio %>" name="character[bio]"/>
-                      </div>
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                        <input type="hidden" name="character[id]" value="<%= character.id %>">
 
-                      <div class="input-group">
-                        <input type="url" class="form-control" value="<%= character.img_url %>" name="character[img_url]"/>
-                      </div>
+                          <div class="input-group">
+                            <input type="text" class="form-control" value="<%= character.name %>" name="character[name]">
+                          </div>
 
-                      <input type="submit" value="Save Changes" class="btn btn-warning">
-                  </form>
+                          <div class="input-group">
+                            <input type="number" class="form-control" value="<%= character.health_points %>" name="character[health_points]">
+                          </div>
 
-                </div><!-- /div tab-pane (edit) -->
-                <%= tag(:div, class: "tab-pane", id: "delete-#{character.id}") %> <!-- div tab-pane (delete) -->
-                  <h5>Do you want to delete <%= character.name %> ?</h5>
+                          <div class="input-group">
+                            <input type="number" class="form-control" value="<%= character.attack_points %>" name="character[attack_points]"/>
+                          </div>
 
-                  <form method="post" action="/delete">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-                    <input type="hidden" name="character[id]" value="<%= character.id %>">
+                          <div class="input-group">
+                            <input type="text" class="form-control" value="<%= character.bio %>" name="character[bio]"/>
+                          </div>
 
-                    <input type="submit" value="Delete" class="btn btn-danger">
-                  </form>
+                          <div class="input-group">
+                            <input type="url" class="form-control" value="<%= character.img_url %>" name="character[img_url]"/>
+                          </div>
 
-                </div><!-- /div tab-pane (delete) -->
-              </div>
-            </div><!-- /content -->
+                          <input type="submit" value="Save Changes" class="btn btn-warning">
+                      </form>
 
-          </div><!-- /card -->
-        </div><!-- /col-md-6 -->
+                    </div><!-- /div tab-pane (edit) -->
+                    <%= tag(:div, class: "tab-pane", id: "delete-#{character.id}") %> <!-- div tab-pane (delete) -->
+                      <h5>Do you want to delete <%= character.name %> ?</h5>
 
-      <% end %>
+                      <form method="post" action="/delete">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                        <input type="hidden" name="character[id]" value="<%= character.id %>">
 
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                      </form>
+
+                    </div><!-- /div tab-pane (delete) -->
+                  </div>
+                </div><!-- /content -->
+
+              </div><!-- /card -->
+            </div><!-- /col-md-6 -->
+
+          <% end %>
+        </div><!-- /row -->
       </div><!-- /container -->
     </div><!-- /section -->
   </div><!-- /main -->
