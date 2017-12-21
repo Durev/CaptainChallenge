@@ -5,6 +5,7 @@ class CharactersController < ApplicationController
   end
 
   def arena
+    @characters = Character.all
   end
 
   def create

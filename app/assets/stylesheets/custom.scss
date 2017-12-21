@@ -3,7 +3,7 @@
 
 // Home page
 .header {
-  background-image: url('arena.jpg')
+  background-image: image-url('arena.jpg');
 }
 
 // Characters page
@@ -22,5 +22,5 @@
 }
 
 div.character {
-  height: 570px;
+  height: 600px;
 }
