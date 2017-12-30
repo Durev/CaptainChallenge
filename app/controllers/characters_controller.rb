@@ -21,10 +21,11 @@ class CharactersController < ApplicationController
   def update
     @character = Character.find(character_params[:id])
     if @character.update_attributes(character_params)
-      redirect_to characters_path
+      # add flash success
     else
-      render 'index'
+      # add flash error ?
     end
+    redirect_to characters_path
   end
 
   def destroy

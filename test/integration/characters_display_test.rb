@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class CharactersDisplayTest < ActionDispatch::IntegrationTest
+
   def setup
     @count = Character.all.count
   end
