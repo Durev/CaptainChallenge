@@ -1,0 +1,31 @@
+<%= tag(:div, class: "tab-pane", id: "edit-#{character.id}") %> <!-- div tab-pane (edit) -->
+
+  <form class="form" method="post" action="/edit">
+
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="character[id]" value="<%= character.id %>">
+
+    <div class="input-group">
+      <input type="text" class="form-control" value="<%= character.name %>" name="character[name]">
+    </div>
+
+    <div class="input-group">
+      <input type="number" class="form-control" value="<%= character.health_points %>" name="character[health_points]">
+    </div>
+
+    <div class="input-group">
+      <input type="number" class="form-control" value="<%= character.attack_points %>" name="character[attack_points]"/>
+    </div>
+
+    <div class="input-group">
+      <input type="text" class="form-control" value="<%= character.bio %>" name="character[bio]"/>
+    </div>
+
+    <div class="input-group">
+      <input type="url" class="form-control" value="<%= character.img_url %>" name="character[img_url]"/>
+    </div>
+
+    <input type="submit" value="Save Changes" class="btn btn-warning">
+  </form>
+
+</div><!-- /div tab-pane (edit) -->

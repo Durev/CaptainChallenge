@@ -1,0 +1,43 @@
+<form class="form" method="post" action="/characters">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <div class="header header-primary text-center">
+    <h4>New Character</h4>
+  </div>
+
+  <div class="content">
+
+    <%= render 'shared/error_messages' %>
+
+    <div class="input-group">
+      <span class="input-group-addon"><i class="material-icons">face</i></span>
+      <input type="text" class="form-control" placeholder="Name *" name="character[name]">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon"><i class="material-icons">favorite</i></span>
+      <input type="number" class="form-control" placeholder="Health points (between 50 and 100) *" name="character[health_points]">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon"><i class="material-icons">whatshot</i></span>
+      <input type="number" class="form-control" placeholder="Attack points (between 5 and 20) *" name="character[attack_points]"/>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon"><i class="material-icons">comment</i></span>
+      <input type="text" class="form-control" placeholder="Bio" name="character[bio]"/>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon"><i class="material-icons">photo</i></span>
+      <input type="url" class="form-control" placeholder="Profile picture url" name="character[img_url]"/>
+    </div>
+
+  </div>
+
+  <div class="footer text-center">
+    <input type="submit" value="Create" class="btn btn-simple btn-success btn-lg">
+  </div>
+</form>

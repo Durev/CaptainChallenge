@@ -1,0 +1,28 @@
+<%= tag(:div, class: "tab-pane active", id: "profile-#{character.id}") %> <!-- div tab-pane (profile) -->
+  <h2><%= character.name %></h2>
+
+  <% if character.img_url.present? %>
+    <%= image_tag(character.img_url, class: "img-circle img-responsive") %>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h4>
+        <i class="material-icons">favorite</i><br>
+        Health : <%= character.health_points %>
+      </h4>
+    </div>
+    <div class="col-md-6">
+      <h4>
+        <i class="material-icons">whatshot</i><br>
+        Attack : <%= character.attack_points %>
+      </h4>
+    </div>
+  </div><!-- /row -->
+
+  <% if character.bio.present? %>
+    <hr>
+    <h4>Bio</h4>
+    <p><%= character.bio %></p>
+  <% end %>
+</div> <!-- /tab-pane (profile) -->

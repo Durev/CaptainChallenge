@@ -1,0 +1,31 @@
+<div class="col-md-6">
+  <div class="card card-nav-tabs character">
+
+    <div class="header header-danger">
+      <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+          <ul class="nav nav-tabs" data-tabs="tabs">
+            <li class="active">
+              <%= content_tag(:a, "Profile", href: "#profile-#{character.id}", "data-toggle" => "tab") %>
+            </li>
+            <li>
+              <%= content_tag(:a, "Edit", href: "#edit-#{character.id}", "data-toggle" => "tab") %>
+            </li>
+            <li>
+              <%= content_tag(:a, "Delete", href: "#delete-#{character.id}", "data-toggle" => "tab") %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="tab-content text-center">
+          <%= render 'profile_tab', character: character %>
+          <%= render 'edit_tab', character: character %>
+          <%= render 'delete_tab', character: character %>
+      </div>
+    </div><!-- /content -->
+
+  </div><!-- /card -->
+</div><!-- /col-md-6 -->
